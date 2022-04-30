@@ -16,7 +16,7 @@ const Atracao = db.define(
             type: DataTypes.STRING,
         },
         data_atracao: {
-            type: DataTypes.STRING,
+            type: DataTypes.DATE,
         },
         enredo: {
             type: DataTypes.STRING,
