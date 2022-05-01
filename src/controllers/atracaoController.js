@@ -14,18 +14,18 @@ const atracaoController = {
             res.json (atracao);
             
         } catch (error) {
-            console.log (error);
+            return res.status (400).json({message: err.message});
         }
 
     },
 
     async listarFavoritos(req,res) {
         try {
-            let favoritos = await Favoritos.findAll();
+            const favoritos = await Favoritos.findAll();
             res.json (favoritos);
             
         } catch (error) {
-            console.log (error);
+            return res.status (400).json({message: err.message});
         }
 
     },
@@ -34,14 +34,46 @@ const atracaoController = {
         try {
             const { atracao_id_atracao, usuario_id_usuario } = req.body;
 
-            let favoritos = await Favoritos.create({
+            const criarFavoritos = await Favoritos.create({
                 atracao_id_atracao, 
                 usuario_id_usuario,
             });
-            return res.status(201).json(favoritos);
+            return res.status(200).json({message: "Atração adicionada aos favoritos."});
             
         } catch (error) {
-            console.log(error);            
+            return res.status (400).json({message: err.message});            
+        }
+
+    },
+
+    async updateFavoritos(req,res) {
+        try {
+            const { atracao_id_atracao, usuario_id_usuario } = req.body;
+
+            const updateFavoritos = await Favoritos.update({
+                atracao_id_atracao, 
+                usuario_id_usuario,
+            });
+            return res.status(201).json({message: "Atração atualizada com sucesso!"});
+            
+        } catch (error) {
+            return res.status (400).json({message: err.message});            
+        }
+
+    },
+
+    async deleteFavoritos(req,res) {
+        try {
+            const { atracao_id_atracao } = req.params;
+
+            const deleteFavoritos = await Favoritos.findByPk(id);
+
+            deleteFavoritos.destroy({where: {id: req.params.id}});
+            
+            return res.status(200).json({message: "Atração deletada."});
+            
+        } catch (error) {
+            return res.status (400).json({message: err.message});            
         }
 
     },
