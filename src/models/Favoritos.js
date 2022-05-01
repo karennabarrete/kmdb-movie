@@ -1,19 +1,22 @@
 const db = require("../database");
 const { DataTypes } = require("sequelize");
+const Atracao = require("../models/Atracao");
+const Usuario = require("../models/Usuario");
+
 
 const Favoritos = db.define(
     "Favoritos", 
     {
-        id_atracao: {
+        atracao_id_atracao: {
             type: DataTypes.INTEGER,
             references: {
-                model: atracao,
+                model: Atracao,
                 key: 'id',
         }},
-        id_usuario: {
+        usuario_id_usuario: {
             type: DataTypes.INTEGER,
             references: {
-                model: usuario,
+                model: Usuario,
                 key: 'id',
         }},
         
