@@ -9,7 +9,7 @@ const atracaoController = {
 
     async listarAtracoes(req,res) {
         try {
-            const atracao = await Atracao.findAll ({where: {id_atracao: req.params.id}});
+            const atracao = await Atracao.findAll();
             res.json (atracao);
             
         } catch (error) {

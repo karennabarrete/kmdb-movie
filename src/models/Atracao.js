@@ -45,13 +45,13 @@ const Atracao = db.define(
                 model: Tipo_atracao,
                 key: 'id',
         }},
-        id_genero: {
+        genero_id_genero: {
             type: DataTypes.INTEGER,
             references: {
                 model: Genero,
                 key: 'id',
         }},
-        id_elenco: {
+        elenco_id_elenco: {
             type: DataTypes.INTEGER,
             references: {
                 model: Elenco,
