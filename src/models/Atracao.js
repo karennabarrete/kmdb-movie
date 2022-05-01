@@ -1,5 +1,8 @@
 const db = require("../database");
 const { DataTypes } = require("sequelize");
+const Tipo_atracao = require("./Tipo_atracao");
+const Genero = require("./Elenco");
+const Elenco = require("./Elenco");
 
 const Atracao = db.define(
     "Atracao", 
@@ -36,22 +39,22 @@ const Atracao = db.define(
         classificacao: {
             type: DataTypes.STRING,
         },
-        id_tipo_atracao: {
+        tipo_atracao_id_tipo_atracao: {
             type: DataTypes.INTEGER,
             references: {
-                model: tipo_atracao,
+                model: Tipo_atracao,
                 key: 'id',
         }},
         id_genero: {
             type: DataTypes.INTEGER,
             references: {
-                model: genero,
+                model: Genero,
                 key: 'id',
         }},
         id_elenco: {
             type: DataTypes.INTEGER,
             references: {
-                model: elenco,
+                model: Elenco,
                 key: 'id',
         }},
 
