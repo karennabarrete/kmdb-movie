@@ -3,6 +3,7 @@ const Tipo_atracao = require("../models/Tipo_atracao");
 const Genero = require("../models/Genero");
 const Elenco = require("../models/Elenco");
 const Favoritos = require("../models/Favoritos");
+const Usuario = require("../models/Usuario");
 
 
 
@@ -25,7 +26,7 @@ const atracaoController = {
             res.json (favoritos);
             
         } catch (error) {
-            return res.status (400).json({message: err.message});
+            console.log(error);
         }
 
     },
