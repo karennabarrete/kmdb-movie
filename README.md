@@ -38,9 +38,11 @@ Nodemon
 Passport
 
 
+
 🔓Autenticação - JWT e Passaport Google:
 
 A API utiliza JWT como forma de autenticação/autorização.
+
 
 
 🔚Endpoints:
@@ -65,4 +67,5 @@ delete ("/usuario") - Deleta o Usuário
 
 
 🤝 Feito por:
-    Karen Nabarrete Garcia
+
+Karen Nabarrete Garcia
