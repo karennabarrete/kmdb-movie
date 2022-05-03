@@ -47,25 +47,9 @@ const atracaoController = {
 
     },
 
-    async updateFavoritos(req,res) {
-        try {
-            const { atracao_id_atracao, usuario_id_usuario } = req.body;
-
-            const updateFavoritos = await Favoritos.update({
-                atracao_id_atracao, 
-                usuario_id_usuario,
-            });
-            return res.status(201).json({message: "Atração atualizada com sucesso!"});
-            
-        } catch (error) {
-            return res.status (400).json({message: err.message});            
-        }
-
-    },
-
     async deleteFavoritos(req,res) {
         try {
-            const { atracao_id_atracao } = req.params;
+            const { atracao_id_atracao, usuario_id_usuario } = req.params;
 
             const deleteFavoritos = await Favoritos.findByPk(id);
 
