@@ -9,15 +9,18 @@ const Favoritos = db.define(
     {
         atracao_id_atracao: {
             type: DataTypes.INTEGER,
+            primaryKey: true,
             references: {
                 model: Atracao,
-                key: 'id',
+                key: 'id_atracao',
+            
         }},
         usuario_id_usuario: {
             type: DataTypes.INTEGER,
+            primaryKey: true,
             references: {
                 model: Usuario,
-                key: 'id',
+                key: 'id_usuario',
         }},
         
 

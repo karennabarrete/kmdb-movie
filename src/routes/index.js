@@ -12,8 +12,8 @@ routes.delete ("/favoritos", atracaoController.deleteFavoritos);
 
 routes.get ("/usuario", usuarioController.listarUsuario);
 routes.post ("/usuario", usuarioController.criarUsuario);
-routes.put ("/usuario", usuarioController.updateUsuario);
-routes.delete ("/usuario", usuarioController.deleteUsuario);
+routes.put ("/usuario/:id", usuarioController.updateUsuario);
+routes.delete ("/usuario/:id", usuarioController.deleteUsuario);
 
 
 module.exports = routes;

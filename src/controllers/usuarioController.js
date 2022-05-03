@@ -34,7 +34,7 @@ const usuarioController = {
 
     async updateUsuario(req,res) {
         try {
-            let { id_usuario, nome_usuario, email_usuario } = req.body;
+            const { id_usuario } = req.params;
 
             const updateUsuario = await Usuario.update({
                 nome_usuario, 
@@ -43,23 +43,23 @@ const usuarioController = {
             return res.status(201).json({message: "Dados atualizados com sucesso!"});
             
         } catch (error) {
-            return res.status (400).json({message: err.message});            
+            console.log(error);          
         }
 
     },
 
     async deleteUsuario(req,res) {
         try {
-            const { atracao_id_atracao } = req.params;
+            const { id_usuario } = req.params;
 
-            const deleteUsuario = await Usuario.findByPk(id);
+            const deleteUsuario = await Usuario.findByPk(id_usuario);
 
             deleteUsuario.destroy({where: {id: req.params.id}});
             
             return res.status(200).json({message: "Usuario deletado."});
             
         } catch (error) {
-            return res.status (400).json({message: err.message});            
+            console.log(error);        
         }
 
     },
